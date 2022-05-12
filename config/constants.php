@@ -10,4 +10,6 @@ return [
     'rolePicOfBranch' => 3,
     'roleSaleMan' => 4,
     'roleCustomer' => 5,
+    'sexMale' => 0,
+    'sexFemale' => 1
 ];

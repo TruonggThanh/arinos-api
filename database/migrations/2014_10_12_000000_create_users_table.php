@@ -19,13 +19,13 @@ class CreateUsersTable extends Migration
             $table->integer('visiting_card_id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->integer('sex');
-            $table->integer('role_id');
-            $table->integer('phone');
+            $table->tinyInteger('sex');
+            $table->tinyInteger('role_id');
+            $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('status');
-            $table->integer('is_deleted');
+            $table->tinyInteger('status');
+            $table->tinyInteger('is_deleted');
             $table->rememberToken();
             $table->timestamps();
         });
