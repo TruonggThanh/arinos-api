@@ -4,8 +4,8 @@ return [
 
     'flash_message' => [
         'create_success' => 'Create New Successfully!',
-        'update_success' => 'Updated Success!',
-        'delete_success' => 'Delete Success!',
+        'update_success' => 'Updated Successfully!',
+        'delete_success' => 'Delete Successfully!',
         'create_error' => 'Create New Error!',
         'update_error' => 'Update Error!',
         'delete_error' => 'Delete Error',

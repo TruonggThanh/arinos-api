@@ -11,6 +11,7 @@ use App\Services\CompanyService;
 use App\Http\Resources\Company\CompanyAccountResource;
 use App\Http\Resources\Company\CompanyAccountCollection;
 use App\Http\Requests\CreateCompanyAccountRequest;
+use App\Http\Requests\UpdateCompanyAccountRequest;
 use Illuminate\Support\Facades\DB;
 
 class CompanyController extends Controller
@@ -49,6 +50,24 @@ class CompanyController extends Controller
             DB::commit();
 
             return $this->sendResponseCreated(['createCompanyAccount' => new CompanyAccountResource($createAccount)], __('common.flash_message.create_success'));
+        } catch(\Exception $e) {
+            \Log::error($e->getMessage());
+
+            DB::rollBack();
+
+            return $this->sendResponseBadRequest($e->getMessage());
+        }
+    }
+
+    public function updateCompanyAccount(UpdateCompanyAccountRequest $request)
+    {
+        DB::beginTransaction();
+        try {
+            $updateAccount = $this->companyService->updateCompanyAccount($request);
+
+            DB::commit();
+
+            return $this->sendResponseCreated(['updateCompanyAccount' => new CompanyAccountResource($updateAccount)], __('common.flash_message.update_success'));
         } catch(\Exception $e) {
             \Log::error($e->getMessage());
 
