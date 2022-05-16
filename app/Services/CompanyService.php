@@ -29,4 +29,24 @@ class CompanyService extends ScutiBaseService
 
         return $listAccount;
     }
+
+    public function createCompanyAccount($request)
+    {
+        $createdData = [
+            'company_id' => $request->companyId,
+            'visiting_card_id' => $request->visitingCardId,
+            'name' => $request->name,
+            'sex' => $request->sex,
+            'role_id' => $request->roleId,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => \Hash::make($request->password),
+            'status' => $request->status,
+            'is_deleted' => config('constants.isDefault')
+        ];
+
+        $createAccount = $this->repository->create($createdData);
+
+        return $createAccount;
+    }
 }
