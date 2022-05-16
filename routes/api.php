@@ -1,6 +1,6 @@
 <?php
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\PicOfCompanyController;
+use App\Http\Controllers\CompanyController;
 
 Route::group([
     'prefix' => 'auth'
@@ -11,8 +11,9 @@ Route::group([
 });
 
 Route::group([
-    'prefix' => 'operator',
+    'prefix' => 'company',
     'middleware' => ['jwt.verify']
 ], function () {
-    Route::get('list-pic-company-account', [PicOfCompanyController::class, 'listPicCompanyAccount']);
+    Route::get('list-pic-company-account', [CompanyController::class, 'listPicCompanyAccount']);
+    Route::post('create-pic-company-account', [CompanyController::class, 'createPicCompanyAccount']);
 });

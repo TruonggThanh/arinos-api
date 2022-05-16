@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\PicOfCompany;
+namespace App\Http\Resources\Company;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ListPicCompanyAccountCollection extends ResourceCollection
+class CompanyAccountCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -14,6 +14,6 @@ class ListPicCompanyAccountCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return ListPicCompanyAccountResource::collection($this->collection);
+        return CompanyAccountResource::collection($this->collection);
     }
 }

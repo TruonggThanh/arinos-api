@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\PicOfCompany;
+namespace App\Http\Resources\Company;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ListPicCompanyAccountResource extends JsonResource
+class CompanyAccountResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

@@ -7,11 +7,11 @@ use Prettus\Repository\Criteria\RequestCriteria;
 use App\Models\User;
 
 /**
- * Class PicOfCompanyRepositoryEloquent.
+ * Class CompanyRepositoryEloquent.
  *
  * @package namespace App\Repositories;
  */
-class PicOfCompanyRepositoryEloquent extends BaseRepositoryEloquent
+class CompanyRepositoryEloquent extends BaseRepositoryEloquent
 {
     /**
      * Specify Model class name

@@ -6,17 +6,16 @@ use Scuti\Admin\ServiceGenerator\Services\ScutiBaseService;
 use App\Helpers\ResponseHelpers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Resources\Users\ProfileResource;
-use App\Repositories\PicOfCompanyRepositoryEloquent;
+use App\Repositories\CompanyRepositoryEloquent;
 
-class PicOfCompanyService extends ScutiBaseService
+class CompanyService extends ScutiBaseService
 {
     use ResponseHelpers;
 
     protected $repository;
 
     public function __construct(
-        PicOfCompanyRepositoryEloquent $repository
+        CompanyRepositoryEloquent $repository
     ){
         $this->repository = $repository;
     }
