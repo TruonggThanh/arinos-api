@@ -39,9 +39,9 @@ class AuthService extends ScutiBaseService
         }
 
         return $this->sendResponseOk([
-            'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'accessToken' => $token,
+            'tokenType' => 'bearer',
+            'expiresIn' => auth()->factory()->getTTL() * 60,
             'profile' => new ProfileResource(Auth::user()),
         ], __('Login successfully'));
     }

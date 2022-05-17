@@ -32,6 +32,30 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    /**
+     * @OA\Post(
+     *     path="/api/auth/login",
+     *     description="Login",
+     *     @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+      *      @OA\Schema(
+    *          type="integer",
+    *          default=1,
+    *      )
+     *       ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden"
+     *      )
+     * )
+     */
+
     public function login(Request $request)
     {
         return $this->authService->login($request->all());
@@ -57,9 +81,9 @@ class AuthController extends Controller
     public function refresh()
     {
         return $this->sendResponseOk([
-            'access_token' => auth()->refresh(),
-            'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'accessToken' => auth()->refresh(),
+            'tokenType' => 'bearer',
+            'expiresIn' => auth()->factory()->getTTL() * 60,
         ], __('Refresh token successfully'));
     }
 }
