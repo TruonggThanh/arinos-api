@@ -14,7 +14,7 @@ Route::group([
     'prefix' => 'company',
     'middleware' => ['jwt.verify']
 ], function () {
-    Route::get('list-pic-company-account', [CompanyController::class, 'listPicCompanyAccount']);
+    Route::get('list-company-account', [CompanyController::class, 'listPicCompanyAccount']);
     Route::post('create-company-account', [CompanyController::class, 'createCompanyAccount']);
     Route::post('update-company-account', [CompanyController::class, 'updateCompanyAccount']);
 });

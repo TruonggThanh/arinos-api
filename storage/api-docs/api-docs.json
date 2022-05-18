@@ -332,6 +332,128 @@
                     }
                 }
             }
+        },
+        "/api/company/list-pic-company-account": {
+            "get": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Company",
+                "operationId": "e4aaf9f94b00b56fcc470a7348383487",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "number",
+                                                        "example": 4
+                                                    },
+                                                    "companyId": {
+                                                        "type": "number",
+                                                        "example": 6
+                                                    },
+                                                    "visitingCardId": {
+                                                        "type": "number",
+                                                        "example": 15
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "Prof. Jamir Stanton Sr."
+                                                    },
+                                                    "sex": {
+                                                        "type": "number",
+                                                        "example": "0"
+                                                    },
+                                                    "roleId": {
+                                                        "type": "number",
+                                                        "example": 2
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "shanna.breitenberg@example.org"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "jwt_token": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "jwt_token": {
+                "type": "apiKey",
+                "description": "Enter token in format (Bearer <token\\>)",
+                "name": "Authorization",
+                "in": "header"
+            }
         }
     }
 }

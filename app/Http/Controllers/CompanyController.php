@@ -30,6 +30,86 @@ class CompanyController extends Controller
         $this->companyService = $companyService;
     }
 
+     /**
+     * Company
+     * @OA\Get (
+     *     path="/api/company/list-pic-company-account",
+     *     tags={"Company"},
+     *     security={
+     *         {"jwt_token": {}}
+     *     },
+     *     @OA\Response(
+     *         response=200,
+     *         description="Success",
+     *         @OA\JsonContent(
+     *             @OA\Property(
+     *                 type="array",
+     *                 property="rows",
+     *                 @OA\Items(
+     *                     type="object",
+     *                     @OA\Property(
+     *                         property="id",
+     *                         type="number",
+     *                         example=4
+     *                     ),
+     *                     @OA\Property(
+     *                         property="companyId",
+     *                         type="number",
+     *                         example=6
+     *                     ),
+     *                     @OA\Property(
+     *                         property="visitingCardId",
+     *                         type="number",
+     *                         example=15
+     *                     ),
+     *                     @OA\Property(
+     *                         property="name",
+     *                         type="string",
+     *                         example="Prof. Jamir Stanton Sr."
+     *                     ),
+     *                     @OA\Property(
+     *                         property="sex",
+     *                         type="number",
+     *                         example="0"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="roleId",
+     *                         type="number",
+     *                         example=2
+     *                     ),
+     *                     @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="shanna.breitenberg@example.org"
+     *                     ),
+     *                 )
+     *             )
+     *         ),
+     *     ),
+     *      @OA\Response(
+     *          response=401,
+     *          description="Unauthenticated",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="Unauthenticated"),
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=403,
+     *          description="Forbidden",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="Forbidden"),
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=422,
+     *          description="Bad validation",
+     *          @OA\JsonContent(
+     *              @OA\Property(property="message", type="string", example="Bad validation"),
+     *          )
+     *      ),
+     * )
+     */
+
     public function listPicCompanyAccount()
     {
         $listAccount = $this->companyService->listPicCompanyAccount();
