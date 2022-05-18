@@ -23,6 +23,7 @@ class ProfileResource extends JsonResource
             'phone' => $this->resource->phone,
             'roleId' => $this->resource->role_id,
             'sex' => $this->resource->sex,
+            'dateOfBirth' => $this->resource->date_of_birth,
             'status' => $this->resource->status,
             'isDeleted' => $this->resource->is_deleted
         ];

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->tinyInteger('sex');
+            $table->date('date_of_birth');
             $table->tinyInteger('role_id');
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();

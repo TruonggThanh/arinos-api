@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Carbon\Carbon;
 
 class UserFactory extends Factory
 {
@@ -22,6 +23,7 @@ class UserFactory extends Factory
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'sex' => rand(config('constants.sexMale'), config('constants.sexFemale')),
+            'date_of_birth' => Carbon::now()->format('Y-m-d'),
             'role_id' => rand(1,5),
             'phone' => $this->faker->phoneNumber,
             'email_verified_at' => now(),
