@@ -31,7 +31,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "title": "thanh.tt@scuti.asia",
+                                    "email": "lynch.emmanuelle@example.org",
                                     "password": "12345678"
                                 }
                             }
@@ -40,7 +40,7 @@
                 },
                 "responses": {
                     "200": {
-                        "description": "success",
+                        "description": "Success",
                         "content": {
                             "application/json": {
                                 "schema": {
@@ -48,10 +48,6 @@
                                         "accessToken": {
                                             "type": "string",
                                             "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODQyNzQ3LCJleHAiOjE2NTI4NDYzNDcsIm5iZiI6MTY1Mjg0Mjc0NywianRpIjoiU1NNaWgzSktkUFN4MXBIcyIsInN1YiI6NTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OMnalkpV9rdBeH1Siq3G63mj3hCVtBdAp-iLn9G7q1M"
-                                        },
-                                        "refreshToken": {
-                                            "type": "string",
-                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODQyNzQ3LCJleHAiOjE2NTI4NDYzNDgsIm5iZiI6MTY1Mjg0Mjc0OCwianRpIjoiejVUZlozR3hLWGJBSG9ZYSIsInN1YiI6NTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.yj2GFcUkAZu1c7ceGeK3wh08DESebr5rAAUPKWuzIsA"
                                         },
                                         "tokenType": {
                                             "type": "string",
@@ -69,7 +65,7 @@
                                                     "companyId": 10,
                                                     "visitingCardId": 2,
                                                     "name": "Ms. Gina Zulauf",
-                                                    "email": "frami.iliana@example.com",
+                                                    "email": "lynch.emmanuelle@example.org",
                                                     "phone": "+1.229.803.2888",
                                                     "roleId": 1,
                                                     "sex": 0,
@@ -84,15 +80,249 @@
                             }
                         }
                     },
-                    "400": {
-                        "description": "invalid",
+                    "401": {
+                        "description": "Unauthenticated",
                         "content": {
                             "application/json": {
                                 "schema": {
                                     "properties": {
-                                        "msg": {
+                                        "message": {
                                             "type": "string",
-                                            "example": "fail"
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout",
+                "operationId": "69281b12abb272c76871f19cb17ca563",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "token": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODU1NzMzLCJleHAiOjE2NTI4NTkzMzMsIm5iZiI6MTY1Mjg1NTczMywianRpIjoiZ0dBU296cWlkTHpzaDlicCIsInN1YiI6NywicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.MlWeh6y5QJAOkOW-ImDF-VKNNOQ_HbKr9uc0eheGtQM"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "expiresIn": {
+                                            "type": "string",
+                                            "example": "Logged out successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/auth/refresh": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Refresh token",
+                "operationId": "b2eae7a8032954d25b46c7ec6f489c68",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "token": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL3JlZnJlc2giLCJpYXQiOjE2NTI4NTUzOTQsImV4cCI6MTY1Mjg1OTAwNywibmJmIjoxNjUyODU1NDA3LCJqdGkiOiJxRzVRb3QwR2ZRUVRQQmVXIiwic3ViIjo3LCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0._FxPOKL9DP64mrLKbZiZN1K8IwgRAEaFWkh3ivXUcNA"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "accessToken": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODQyNzQ3LCJleHAiOjE2NTI4NDYzNDcsIm5iZiI6MTY1Mjg0Mjc0NywianRpIjoiU1NNaWgzSktkUFN4MXBIcyIsInN1YiI6NTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OMnalkpV9rdBeH1Siq3G63mj3hCVtBdAp-iLn9G7q1M"
+                                        },
+                                        "tokenType": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expiresIn": {
+                                            "type": "number",
+                                            "example": 3600
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
                                         }
                                     },
                                     "type": "object"
