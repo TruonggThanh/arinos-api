@@ -18,13 +18,17 @@ class CompanyAccountResource extends JsonResource
         return [
             'id' => $this->id,
             'companyId' => $this->company_id,
-            'visitingCardId' => $this->visiting_card_id,
             'name' => $this->name,
-            'sex' => $this->sex,
-            'roleId' => $this->role_id,
+            'nameRomaji' => $this->name_romaji,
             'email' => $this->email,
-            'phone' => $this->phone, 
-            'status' => $this->status, 
+            'sex' => $this->sex,
+            'dateOfBirth' => $this->date_of_birth,
+            'phone' => $this->phone,
+            'roleId' => $this->role_id,
+            'position' => $this->position,
+            'avatar' => $this->avatar,
+            'status' => $this->status,
+            'isDeleted' => $this->is_deleted
         ];
     }
 }

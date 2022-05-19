@@ -11,5 +11,10 @@ return [
     'roleSaleMan' => 4,
     'roleCustomer' => 5,
     'sexMale' => 0,
-    'sexFemale' => 1
+    'sexFemale' => 1,
+    'position1' => 'Director',
+    'position2' => 'Chief Executive Officer',
+    'position3' => 'Chief Information Officer',
+    'position4' => 'Chief Financial Officer',
+    'position5' => 'President ',
 ];

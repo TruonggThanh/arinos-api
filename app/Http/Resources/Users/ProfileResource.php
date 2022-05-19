@@ -15,17 +15,19 @@ class ProfileResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id' => $this->resource->id,
-            'companyId' => $this->resource->company_id,
-            'visitingCardId' => $this->resource->visiting_card_id,
-            'name' => $this->resource->name,
-            'email' => $this->resource->email,
-            'phone' => $this->resource->phone,
-            'roleId' => $this->resource->role_id,
-            'sex' => $this->resource->sex,
-            'dateOfBirth' => $this->resource->date_of_birth,
-            'status' => $this->resource->status,
-            'isDeleted' => $this->resource->is_deleted
+            'id' => $this->id,
+            'companyId' => $this->company_id,
+            'name' => $this->name,
+            'nameRomaji' => $this->name_romaji,
+            'email' => $this->email,
+            'sex' => $this->sex,
+            'dateOfBirth' => $this->date_of_birth,
+            'phone' => $this->phone,
+            'roleId' => $this->role_id,
+            'position' => $this->position,
+            'avatar' => $this->avatar,
+            'status' => $this->status,
+            'isDeleted' => $this->is_deleted
         ];
     }
 }

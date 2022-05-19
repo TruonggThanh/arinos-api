@@ -79,6 +79,11 @@ class CompanyController extends Controller
      *                         example="0"
      *                     ),
      *                     @OA\Property(
+     *                         property="dateOfBirth",
+     *                         type="string",
+     *                         example="2022-05-19"
+     *                     ),
+     *                     @OA\Property(
      *                         property="roleId",
      *                         type="number",
      *                         example=2
