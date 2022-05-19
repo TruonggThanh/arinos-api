@@ -20,10 +20,10 @@ class CompanyService extends ScutiBaseService
         $this->repository = $repository;
     }
 
-    public function listPicCompanyAccount()
+    public function listCompanyAccount($companyId)
     {
         $listAccount = $this->repository->findWhere([
-            'role_id' => config('constants.rolePicOfCompany'),
+            'company_id' => $companyId,
             'is_deleted' => config('constants.isDefault'),
         ]);
 

@@ -33,11 +33,17 @@ class CompanyController extends Controller
      /**
      * Company
      * @OA\Get (
-     *     path="/api/company/list-pic-company-account",
+     *     path="/api/company/list-company-account/{companyId}",
      *     tags={"Company"},
      *     security={
      *         {"jwt_token": {}}
      *     },
+     *     @OA\Parameter(
+     *         in="path",
+     *         name="companyId",
+     *         required=true,
+     *         @OA\Schema(type="number")
+     *     ),
      *     @OA\Response(
      *         response=200,
      *         description="Success",
@@ -110,9 +116,13 @@ class CompanyController extends Controller
      * )
      */
 
-    public function listPicCompanyAccount()
+    public function listCompanyAccount($companyId)
     {
-        $listAccount = $this->companyService->listPicCompanyAccount();
+        if (auth()->user()->role_id != config('constants.rolePicOfCompany') && auth()->user()->role_id != config('constants.roleOperator')) {
+            return $this->sendResponseForbidden();
+        }
+
+        $listAccount = $this->companyService->listCompanyAccount($companyId);
 
         if (!$listAccount) {
             return $this->sendResponseNotFound();

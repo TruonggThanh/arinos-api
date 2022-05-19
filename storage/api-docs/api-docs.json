@@ -333,13 +333,23 @@
                 }
             }
         },
-        "/api/company/list-pic-company-account": {
+        "/api/company/list-company-account/{companyId}": {
             "get": {
                 "tags": [
                     "Company"
                 ],
                 "summary": "Company",
-                "operationId": "e4aaf9f94b00b56fcc470a7348383487",
+                "operationId": "f03c7d2371c289c7537be9d1ac992dc2",
+                "parameters": [
+                    {
+                        "name": "companyId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Success",
