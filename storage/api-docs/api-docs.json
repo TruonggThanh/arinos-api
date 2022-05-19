@@ -340,7 +340,7 @@
                 "tags": [
                     "Company"
                 ],
-                "summary": "Company",
+                "summary": "List company account",
                 "operationId": "f03c7d2371c289c7537be9d1ac992dc2",
                 "parameters": [
                     {
@@ -414,6 +414,360 @@
                                                 },
                                                 "type": "object"
                                             }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "jwt_token": []
+                    }
+                ]
+            }
+        },
+        "/api/company/create-company-account": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Create company account",
+                "operationId": "b8fa2eed321abd6fd68342bdb2b158d8",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "companyId": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "nameRomaji": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "sex": {
+                                                "type": "number"
+                                            },
+                                            "dateOfBirth": {
+                                                "type": "string"
+                                            },
+                                            "phone": {
+                                                "type": "string"
+                                            },
+                                            "roleId": {
+                                                "type": "number"
+                                            },
+                                            "position": {
+                                                "type": "string"
+                                            },
+                                            "avatar": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            },
+                                            "cpassword": {
+                                                "type": "string"
+                                            },
+                                            "status": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "companyId": 19,
+                                    "name": "Afton Schuster",
+                                    "nameRomaji": "Jillian Jerde",
+                                    "email": "cfunk@example.com",
+                                    "sex": 0,
+                                    "dateOfBirth": "2022-05-19",
+                                    "phone": "+19732341225",
+                                    "roleId": 2,
+                                    "position": "Chief Executive Officer",
+                                    "avatar": "Yasmin Kuphal.png",
+                                    "password": "12345678",
+                                    "cpassword": "12345678",
+                                    "status": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "accessToken": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODQyNzQ3LCJleHAiOjE2NTI4NDYzNDcsIm5iZiI6MTY1Mjg0Mjc0NywianRpIjoiU1NNaWgzSktkUFN4MXBIcyIsInN1YiI6NTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OMnalkpV9rdBeH1Siq3G63mj3hCVtBdAp-iLn9G7q1M"
+                                        },
+                                        "tokenType": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expiresIn": {
+                                            "type": "number",
+                                            "example": 3600
+                                        },
+                                        "profile": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "id": 50,
+                                                    "companyId": 10,
+                                                    "name": "Ms. Gina Zulauf",
+                                                    "nameRomaji": "Mr. Eugene Collins V",
+                                                    "email": "lynch.emmanuelle@example.org",
+                                                    "sex": 0,
+                                                    "dateOfBirth": "1997-07-30",
+                                                    "phone": "+1.229.803.2888",
+                                                    "roleId": 1,
+                                                    "position": "Chief Executive Officer",
+                                                    "avatar": "Lynn Denesik.png",
+                                                    "status": 1
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Unauthenticated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Forbidden"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Bad validation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Bad validation"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "jwt_token": []
+                    }
+                ]
+            }
+        },
+        "/api/company/update-company-account": {
+            "post": {
+                "tags": [
+                    "Company"
+                ],
+                "summary": "Update company account",
+                "operationId": "7da27fdd01fafa9bf5697bb078ebf289",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "": {
+                                        "properties": {
+                                            "id": {
+                                                "type": "number"
+                                            },
+                                            "companyId": {
+                                                "type": "number"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "nameRomaji": {
+                                                "type": "string"
+                                            },
+                                            "email": {
+                                                "type": "string"
+                                            },
+                                            "sex": {
+                                                "type": "number"
+                                            },
+                                            "dateOfBirth": {
+                                                "type": "string"
+                                            },
+                                            "phone": {
+                                                "type": "string"
+                                            },
+                                            "roleId": {
+                                                "type": "number"
+                                            },
+                                            "position": {
+                                                "type": "string"
+                                            },
+                                            "avatar": {
+                                                "type": "string"
+                                            },
+                                            "password": {
+                                                "type": "string"
+                                            },
+                                            "status": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "id": 1,
+                                    "companyId": 19,
+                                    "name": "Afton Schuster",
+                                    "nameRomaji": "Jillian Jerde",
+                                    "email": "cfunk@example.com",
+                                    "sex": 0,
+                                    "dateOfBirth": "2022-05-19",
+                                    "phone": "+19732341225",
+                                    "roleId": 2,
+                                    "position": "Chief Executive Officer",
+                                    "avatar": "Yasmin Kuphal.png",
+                                    "password": "12345678",
+                                    "status": 0
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "accessToken": {
+                                            "type": "string",
+                                            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcmlub3MtYXBpLmxvY2FsXC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNjUyODQyNzQ3LCJleHAiOjE2NTI4NDYzNDcsIm5iZiI6MTY1Mjg0Mjc0NywianRpIjoiU1NNaWgzSktkUFN4MXBIcyIsInN1YiI6NTAsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OMnalkpV9rdBeH1Siq3G63mj3hCVtBdAp-iLn9G7q1M"
+                                        },
+                                        "tokenType": {
+                                            "type": "string",
+                                            "example": "bearer"
+                                        },
+                                        "expiresIn": {
+                                            "type": "number",
+                                            "example": 3600
+                                        },
+                                        "profile": {
+                                            "type": "object",
+                                            "example": [
+                                                {
+                                                    "id": 50,
+                                                    "companyId": 10,
+                                                    "name": "Ms. Gina Zulauf",
+                                                    "nameRomaji": "Mr. Eugene Collins V",
+                                                    "email": "lynch.emmanuelle@example.org",
+                                                    "sex": 0,
+                                                    "dateOfBirth": "1997-07-30",
+                                                    "phone": "+1.229.803.2888",
+                                                    "roleId": 1,
+                                                    "position": "Chief Executive Officer",
+                                                    "avatar": "Lynn Denesik.png",
+                                                    "status": 1
+                                                }
+                                            ]
                                         }
                                     },
                                     "type": "object"

@@ -34,12 +34,15 @@ class CompanyService extends ScutiBaseService
     {
         $createdData = [
             'company_id' => $request->companyId,
-            'visiting_card_id' => $request->visitingCardId,
             'name' => $request->name,
-            'sex' => $request->sex,
-            'role_id' => $request->roleId,
+            'name_romaji' => $request->nameRomaji,
             'email' => $request->email,
+            'sex' => $request->sex,
+            'date_of_birth' => $request->dateOfBirth,
             'phone' => $request->phone,
+            'role_id' => $request->roleId,
+            'position'=> $request->position,
+            'avatar'=> $request->avatar,
             'password' => \Hash::make($request->password),
             'status' => $request->status,
         ];
@@ -53,15 +56,20 @@ class CompanyService extends ScutiBaseService
     {
         $updatedData = [
             'company_id' => $request->companyId,
-            'visiting_card_id' => $request->visitingCardId,
             'name' => $request->name,
-            'sex' => $request->sex,
-            'role_id' => $request->roleId,
+            'name_romaji' => $request->nameRomaji,
             'email' => $request->email,
+            'sex' => $request->sex,
+            'date_of_birth' => $request->dateOfBirth,
             'phone' => $request->phone,
+            'role_id' => $request->roleId,
+            'position'=> $request->position,
+            'avatar'=> $request->avatar,
             'password' => \Hash::make($request->password),
             'status' => $request->status,
         ];
+
+      
 
         $updateAccount = $this->repository->update($updatedData, $request->id);
 

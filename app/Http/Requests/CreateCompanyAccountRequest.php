@@ -15,12 +15,15 @@ class CreateCompanyAccountRequest extends BaseApiRequest
     {
         return [
             'companyId' => 'required|numeric',
-            'visitingCardId' => 'required|numeric',
             'name' => 'required',
-            'sex' => 'required|numeric',
-            'roleId' => 'required|numeric',
+            'nameRomaji' => 'required',
             'email' => 'required|email|unique:users',
+            'sex' => 'required|numeric',
+            'dateOfBirth' => 'required',
             'phone' => 'required',
+            'roleId' => 'required|numeric',
+            'position' => 'required',
+            'avatar' => 'required',
             'password' => 'required|min:6|max:18',
             'cpassword' => 'required|min:6|max:18|same:password',
             'status' => 'required|numeric',

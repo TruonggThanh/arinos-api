@@ -16,12 +16,15 @@ class UpdateCompanyAccountRequest extends BaseApiRequest
         return [
             'id' => 'required|numeric|exists:users,id',
             'companyId' => 'required|numeric',
-            'visitingCardId' => 'required|numeric',
             'name' => 'required',
-            'sex' => 'required|numeric',
-            'roleId' => 'required|numeric',
+            'nameRomaji' => 'required',
             'email' => 'required|email|unique:users,email,'.$this->id,
+            'sex' => 'required|numeric',
+            'dateOfBirth' => 'required',
             'phone' => 'required',
+            'roleId' => 'required|numeric',
+            'position' => 'required',
+            'avatar' => 'required',
             'password' => 'required|min:6|max:18',
             'status' => 'required|numeric',
         ];
