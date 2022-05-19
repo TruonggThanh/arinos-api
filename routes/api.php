@@ -10,11 +10,23 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
 });
 
+// Route::group([
+//     'prefix' => 'companies',
+//     'middleware' => ['jwt.verify']
+// ], function () {
+//     Route::get('{companyId}', [CompanyController::class, 'listCompanyAccount']);
+//     Route::post('', [CompanyController::class, 'createCompanyAccount']);
+//     Route::post('', [CompanyController::class, 'updateCompanyAccount']);
+// });
+
 Route::group([
-    'prefix' => 'company',
     'middleware' => ['jwt.verify']
 ], function () {
-    Route::get('list-company-account/{companyId}', [CompanyController::class, 'listCompanyAccount']);
-    Route::post('create-company-account', [CompanyController::class, 'createCompanyAccount']);
-    Route::post('update-company-account', [CompanyController::class, 'updateCompanyAccount']);
+    Route::group([
+        'prefix' => 'operator/companies',
+    ], function () {
+        Route::get('{companyId}', [CompanyController::class, 'listCompanyAccount']);
+        Route::post('', [CompanyController::class, 'createCompanyAccount']);
+        Route::put('', [CompanyController::class, 'updateCompanyAccount']);
+    });
 });

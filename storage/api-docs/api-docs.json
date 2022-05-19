@@ -335,13 +335,13 @@
                 }
             }
         },
-        "/api/company/list-company-account/{companyId}": {
+        "/api/operator/companies/{companyId}": {
             "get": {
                 "tags": [
                     "Company"
                 ],
                 "summary": "List company account",
-                "operationId": "f03c7d2371c289c7537be9d1ac992dc2",
+                "operationId": "3a39784ab680e9e71209b20bafb48a29",
                 "parameters": [
                     {
                         "name": "companyId",
@@ -477,13 +477,13 @@
                 ]
             }
         },
-        "/api/company/create-company-account": {
-            "post": {
+        "/api/operator/companies": {
+            "put": {
                 "tags": [
                     "Company"
                 ],
-                "summary": "Create company account",
-                "operationId": "b8fa2eed321abd6fd68342bdb2b158d8",
+                "summary": "Update company account",
+                "operationId": "2159820c623c846c3cb9071235e7f034",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -491,6 +491,9 @@
                                 "properties": {
                                     "": {
                                         "properties": {
+                                            "id": {
+                                                "type": "number"
+                                            },
                                             "companyId": {
                                                 "type": "number"
                                             },
@@ -524,9 +527,6 @@
                                             "password": {
                                                 "type": "string"
                                             },
-                                            "cpassword": {
-                                                "type": "string"
-                                            },
                                             "status": {
                                                 "type": "number"
                                             }
@@ -536,6 +536,7 @@
                                 },
                                 "type": "object",
                                 "example": {
+                                    "id": 1,
                                     "companyId": 19,
                                     "name": "Afton Schuster",
                                     "nameRomaji": "Jillian Jerde",
@@ -547,7 +548,6 @@
                                     "position": "Chief Executive Officer",
                                     "avatar": "Yasmin Kuphal.png",
                                     "password": "12345678",
-                                    "cpassword": "12345678",
                                     "status": 0
                                 }
                             }
@@ -652,15 +652,13 @@
                         "jwt_token": []
                     }
                 ]
-            }
-        },
-        "/api/company/update-company-account": {
+            },
             "post": {
                 "tags": [
                     "Company"
                 ],
-                "summary": "Update company account",
-                "operationId": "7da27fdd01fafa9bf5697bb078ebf289",
+                "summary": "Create company account",
+                "operationId": "6a0e930eb27a23aef19ba635f4434448",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -668,9 +666,6 @@
                                 "properties": {
                                     "": {
                                         "properties": {
-                                            "id": {
-                                                "type": "number"
-                                            },
                                             "companyId": {
                                                 "type": "number"
                                             },
@@ -704,6 +699,9 @@
                                             "password": {
                                                 "type": "string"
                                             },
+                                            "cpassword": {
+                                                "type": "string"
+                                            },
                                             "status": {
                                                 "type": "number"
                                             }
@@ -713,7 +711,6 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "id": 1,
                                     "companyId": 19,
                                     "name": "Afton Schuster",
                                     "nameRomaji": "Jillian Jerde",
@@ -725,6 +722,7 @@
                                     "position": "Chief Executive Officer",
                                     "avatar": "Yasmin Kuphal.png",
                                     "password": "12345678",
+                                    "cpassword": "12345678",
                                     "status": 0
                                 }
                             }

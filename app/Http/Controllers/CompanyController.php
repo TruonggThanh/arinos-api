@@ -33,7 +33,7 @@ class CompanyController extends Controller
      /**
      * List company account
      * @OA\Get (
-     *     path="/api/company/list-company-account/{companyId}",
+     *     path="/api/operator/companies/{companyId}",
      *     tags={"Company"},
      *     security={
      *         {"jwt_token": {}}
@@ -149,7 +149,7 @@ class CompanyController extends Controller
 
         $listAccount = $this->companyService->listCompanyAccount($companyId);
 
-        if ($listAccount->empty()) {
+        if (empty($listAccount)) {
             return $this->sendResponseNotFound();
         }
 
@@ -165,7 +165,7 @@ class CompanyController extends Controller
     /**
      * Create company account
      * @OA\Post (
-     *     path="/api/company/create-company-account",
+     *     path="/api/operator/companies",
      *     tags={"Company"},
      *     security={
      *         {"jwt_token": {}}
@@ -318,8 +318,8 @@ class CompanyController extends Controller
 
      /**
      * Update company account
-     * @OA\Post (
-     *     path="/api/company/update-company-account",
+     * @OA\PUT (
+     *     path="/api/operator/companies",
      *     tags={"Company"},
      *     security={
      *         {"jwt_token": {}}
