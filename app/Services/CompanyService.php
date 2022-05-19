@@ -24,7 +24,7 @@ class CompanyService extends ScutiBaseService
     {
         $listAccount = $this->repository->findWhere([
             'company_id' => $companyId,
-            'is_deleted' => config('constants.isDefault'),
+            'deleted_at' => null,
         ]);
 
         return $listAccount;
@@ -42,7 +42,6 @@ class CompanyService extends ScutiBaseService
             'phone' => $request->phone,
             'password' => \Hash::make($request->password),
             'status' => $request->status,
-            'is_deleted' => config('constants.isDefault')
         ];
 
         $createAccount = $this->repository->create($createdData);
@@ -62,7 +61,6 @@ class CompanyService extends ScutiBaseService
             'phone' => $request->phone,
             'password' => \Hash::make($request->password),
             'status' => $request->status,
-            'is_deleted' => config('constants.isDefault')
         ];
 
         $updateAccount = $this->repository->update($updatedData, $request->id);

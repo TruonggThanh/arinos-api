@@ -28,7 +28,6 @@ class CompanyAccountResource extends JsonResource
             'position' => $this->position,
             'avatar' => $this->avatar,
             'status' => $this->status,
-            'isDeleted' => $this->is_deleted
         ];
     }
 }

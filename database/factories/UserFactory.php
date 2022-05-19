@@ -32,7 +32,6 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => Hash::make('12345678'),
             'status' => rand(config('constants.isActive'), config('constants.isInactive')),
-            'is_deleted' => rand(config('constants.isDefault'), config('constants.isDelete')),
             'remember_token' => Str::random(10),
         ];
     }

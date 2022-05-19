@@ -64,19 +64,24 @@ class CompanyController extends Controller
      *                         example=6
      *                     ),
      *                     @OA\Property(
-     *                         property="visitingCardId",
-     *                         type="number",
-     *                         example=15
-     *                     ),
-     *                     @OA\Property(
      *                         property="name",
      *                         type="string",
      *                         example="Prof. Jamir Stanton Sr."
      *                     ),
      *                     @OA\Property(
+     *                         property="nameRomaji",
+     *                         type="string",
+     *                         example="Jamir Stanton"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="email",
+     *                         type="string",
+     *                         example="cfunk@example.com"
+     *                     ),
+     *                     @OA\Property(
      *                         property="sex",
      *                         type="number",
-     *                         example="0"
+     *                         example=0
      *                     ),
      *                     @OA\Property(
      *                         property="dateOfBirth",
@@ -84,14 +89,29 @@ class CompanyController extends Controller
      *                         example="2022-05-19"
      *                     ),
      *                     @OA\Property(
+     *                         property="phone",
+     *                         type="string",
+     *                         example="+19732341225"
+     *                     ),
+     *                     @OA\Property(
      *                         property="roleId",
      *                         type="number",
      *                         example=2
      *                     ),
      *                     @OA\Property(
-     *                         property="email",
+     *                         property="position",
      *                         type="string",
-     *                         example="shanna.breitenberg@example.org"
+     *                         example="Chief Executive Officer"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="avatar",
+     *                         type="string",
+     *                         example="Yasmin Kuphal.png"
+     *                     ),
+     *                     @OA\Property(
+     *                         property="status",
+     *                         type="number",
+     *                         example=0
      *                     ),
      *                 )
      *             )
@@ -129,7 +149,7 @@ class CompanyController extends Controller
 
         $listAccount = $this->companyService->listCompanyAccount($companyId);
 
-        if (!$listAccount) {
+        if ($listAccount->empty()) {
             return $this->sendResponseNotFound();
         }
 

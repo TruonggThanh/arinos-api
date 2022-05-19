@@ -54,7 +54,7 @@ class AuthController extends Controller
      *                      )
      *                 ),
      *                 example={
-     *                     "email":"lynch.emmanuelle@example.org",
+     *                     "email":"daugherty.ezequiel@example.org",
      *                     "password":"12345678"
      *                }
      *             )
@@ -72,16 +72,17 @@ class AuthController extends Controller
      *                  type="object", 
      *                  example={{
      *                      "id":50,
-     *                      "companyId":10,
-     *                      "visitingCardId":2,
-     *                      "companyId":10,
-     *                      "name":"Ms. Gina Zulauf",
-     *                      "email":"lynch.emmanuelle@example.org",
-     *                      "phone":"+1.229.803.2888",
-     *                      "roleId":1,
-     *                      "sex":0,
-     *                      "dateOfBirth":"1997-07-30",
-     *                      "status":1,
+     *                      "companyId": 10,
+     *                      "name": "Ms. Gina Zulauf",
+     *                      "nameRomaji": "Mr. Eugene Collins V",
+     *                      "email": "lynch.emmanuelle@example.org",
+     *                      "sex": 0,
+     *                      "dateOfBirth": "1997-07-30",
+     *                      "phone": "+1.229.803.2888",
+     *                      "roleId": 1,
+     *                      "position": "Chief Executive Officer",
+     *                      "avatar": "Lynn Denesik.png",
+     *                      "status": 1,
      *                  },
      *              }),
      *          )

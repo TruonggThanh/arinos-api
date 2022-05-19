@@ -8,10 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable implements JWTSubject
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
     
     /**
      * The attributes that are mass assignable.
@@ -21,15 +22,16 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'id',
         'company_id',
-        'visiting_card_id',
         'name',
+        'name_romaji',
         'email',
         'sex',
-        'role_id',
+        'date_of_birth',
         'phone',
-        'password',
+        'role_id',
+        'position',
+        'avatar',
         'status',
-        'is_deleted'
     ];
 
     /**

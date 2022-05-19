@@ -31,7 +31,7 @@
                                 },
                                 "type": "object",
                                 "example": {
-                                    "email": "lynch.emmanuelle@example.org",
+                                    "email": "daugherty.ezequiel@example.org",
                                     "password": "12345678"
                                 }
                             }
@@ -63,13 +63,15 @@
                                                 {
                                                     "id": 50,
                                                     "companyId": 10,
-                                                    "visitingCardId": 2,
                                                     "name": "Ms. Gina Zulauf",
+                                                    "nameRomaji": "Mr. Eugene Collins V",
                                                     "email": "lynch.emmanuelle@example.org",
-                                                    "phone": "+1.229.803.2888",
-                                                    "roleId": 1,
                                                     "sex": 0,
                                                     "dateOfBirth": "1997-07-30",
+                                                    "phone": "+1.229.803.2888",
+                                                    "roleId": 1,
+                                                    "position": "Chief Executive Officer",
+                                                    "avatar": "Lynn Denesik.png",
                                                     "status": 1
                                                 }
                                             ]
@@ -369,29 +371,45 @@
                                                         "type": "number",
                                                         "example": 6
                                                     },
-                                                    "visitingCardId": {
-                                                        "type": "number",
-                                                        "example": 15
-                                                    },
                                                     "name": {
                                                         "type": "string",
                                                         "example": "Prof. Jamir Stanton Sr."
                                                     },
+                                                    "nameRomaji": {
+                                                        "type": "string",
+                                                        "example": "Jamir Stanton"
+                                                    },
+                                                    "email": {
+                                                        "type": "string",
+                                                        "example": "cfunk@example.com"
+                                                    },
                                                     "sex": {
                                                         "type": "number",
-                                                        "example": "0"
+                                                        "example": 0
                                                     },
                                                     "dateOfBirth": {
                                                         "type": "string",
                                                         "example": "2022-05-19"
                                                     },
+                                                    "phone": {
+                                                        "type": "string",
+                                                        "example": "+19732341225"
+                                                    },
                                                     "roleId": {
                                                         "type": "number",
                                                         "example": 2
                                                     },
-                                                    "email": {
+                                                    "position": {
                                                         "type": "string",
-                                                        "example": "shanna.breitenberg@example.org"
+                                                        "example": "Chief Executive Officer"
+                                                    },
+                                                    "avatar": {
+                                                        "type": "string",
+                                                        "example": "Yasmin Kuphal.png"
+                                                    },
+                                                    "status": {
+                                                        "type": "number",
+                                                        "example": 0
                                                     }
                                                 },
                                                 "type": "object"
