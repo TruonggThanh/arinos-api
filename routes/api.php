@@ -10,15 +10,6 @@ Route::group([
     Route::post('refresh', [AuthController::class, 'refresh']);
 });
 
-// Route::group([
-//     'prefix' => 'companies',
-//     'middleware' => ['jwt.verify']
-// ], function () {
-//     Route::get('{companyId}', [CompanyController::class, 'listCompanyAccount']);
-//     Route::post('', [CompanyController::class, 'createCompanyAccount']);
-//     Route::post('', [CompanyController::class, 'updateCompanyAccount']);
-// });
-
 Route::group([
     'middleware' => ['jwt.verify']
 ], function () {
@@ -28,5 +19,11 @@ Route::group([
         Route::get('{companyId}', [CompanyController::class, 'listCompanyAccount']);
         Route::post('', [CompanyController::class, 'createCompanyAccount']);
         Route::put('', [CompanyController::class, 'updateCompanyAccount']);
+    });
+
+    Route::group([
+        'prefix' => 'picOfCompany/companies',
+    ], function () {
+        Route::post('send-mail-invitation', [CompanyController::class, 'sendMailInvitation']);
     });
 });
