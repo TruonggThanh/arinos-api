@@ -113,7 +113,16 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        return $this->authService->login($request->all());
+        // return $this->authService->login($request->all());
+        try {
+            return $this->authService->login($request->all());
+        } catch(\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            \Log::error($e->getMessage());
+            return $this->sendResponseUnauthenRequest($e->getMessage());
+        } catch(\Exception $e) {
+            \Log::error($e->getMessage());
+            return $this->sendResponseBasedRequest($e->getMessage());
+        }
     }
 
     /**

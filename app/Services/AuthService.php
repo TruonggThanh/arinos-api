@@ -7,6 +7,7 @@ use App\Helpers\ResponseHelpers;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\Users\ProfileResource;
+use Tymon\JWTAuth\Exceptions\UserNotDefinedException;
 
 class AuthService extends ScutiBaseService
 {
@@ -28,14 +29,13 @@ class AuthService extends ScutiBaseService
         $credentials = request(['email', 'password']);
 
         $token = auth()->attempt($credentials);
-
         if (!$token) {
-            return $this->sendResponseBadValidate($validator->messages());
+            throw new UserNotDefinedException("This account does not exist");
         }
 
-        if (Auth::user()->is_deleted == config('constants.isDelete')) {
+        if (Auth::user()->deleted_at != null) {
             auth()->logout();
-            return $this->sendResponseBadValidate([], __('Login fail'));
+            throw new UserNotDefinedException("This account does not exist");
         }
 
         return $this->sendResponseOk([
