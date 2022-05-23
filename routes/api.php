@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\NewPasswordController;
 
 Route::group([
     'prefix' => 'auth'
@@ -27,3 +28,6 @@ Route::group([
         Route::post('send-mail-invitation', [CompanyController::class, 'sendMailInvitation']);
     });
 });
+
+Route::post('forgot-password', [NewPasswordController::class, 'forgotPassword'])->name('password.reset');
+Route::post('reset-password', [NewPasswordController::class, 'reset']);
